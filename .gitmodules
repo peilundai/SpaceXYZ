@@ -1,0 +1,3 @@
+[submodule "segmentation_models"]
+	path = segmentation_models
+	url = git@github.com:peilundai/segmentation_models.git
