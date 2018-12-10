@@ -11,11 +11,13 @@ from matplotlib import pyplot as plt
 from os import listdir
 from os.path import isfile, join
 
-images_path = "./images"
-labels_path = "./labels"
+n_classes = 1+7
+
+images_path = "/scratch2/peilun/originalImages"
+labels_path = "/scratch2/peilun/GT"
 image_out_path = images_path + "_augmented/"
 label_out_path = labels_path + "_augmented/"
-show_on_image = './overlay/'
+show_on_image = '/scratch2/peilun/o2/'
 image_files = [f for f in listdir(images_path) if isfile(join(images_path, f))]
 label_files = [f for f in listdir(labels_path) if isfile(join(labels_path, f))]
 
@@ -36,7 +38,7 @@ for i in range(n_items):
     label = cv2.imread(join(labels_path, label_files[i]))
     segmap = label.astype(np.int32)
     segmap = segmap[:,:,0]
-    segmap = ia.SegmentationMapOnImage(segmap, shape=image.shape, nb_classes=1+6)
+    segmap = ia.SegmentationMapOnImage(segmap, shape=image.shape, nb_classes=n_classes)
     
     # transformation types
     seq = iaa.Sequential([
