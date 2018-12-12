@@ -1,2 +1,3 @@
 # cs542_spacexyz
-wafCourse project for CS 542 Machine Learning at Boston University
+Course project for CS 542 Machine Learning at Boston University.
+Segmenting and parsing floor plans using U-net.
