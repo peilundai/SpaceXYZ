@@ -11,13 +11,13 @@ from matplotlib import pyplot as plt
 from os import listdir
 from os.path import isfile, join
 
-n_classes = 1+7
+n_classes = 1+6
 
-images_path = "/scratch2/peilun/originalImages"
-labels_path = "/scratch2/peilun/GT"
-image_out_path = images_path + "_augmented/"
-label_out_path = labels_path + "_augmented/"
-show_on_image = '/scratch2/peilun/o2/'
+images_path = "/scratch2/peilun/SpaceXYZ/originalImages"
+labels_path = "/scratch2/peilun/SpaceXYZ/GT"
+image_out_path = images_path + "_new_augmented/"
+label_out_path = labels_path + "_new_augmented/"
+show_on_image = '/scratch2/peilun/SpaceXYZ/o2/'
 image_files = [f for f in listdir(images_path) if isfile(join(images_path, f))]
 label_files = [f for f in listdir(labels_path) if isfile(join(labels_path, f))]
 
@@ -48,7 +48,7 @@ for i in range(n_items):
                scale={"x": (0.75, 1.25), "y": (0.75, 1.25)}, 
                translate_percent={"x": (-0.2, 0.2), "y": (-0.2, 0.2)}, mode='constant', cval=255)], random_order=True)
     
-    for j in range(20):
+    for j in range(10):
         print("  Transformation ", j)
         seq_det = seq.to_deterministic()
         img = seq_det.augment_image(image)
